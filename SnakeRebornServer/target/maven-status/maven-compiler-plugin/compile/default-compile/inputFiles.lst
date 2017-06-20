@@ -1,0 +1,16 @@
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\SnakeServerDemoApplication.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\security\SecurityConfig.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\model\Credentials.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\repository\MatchRepository.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\controller\APIController.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\model\Match.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\security\PwdEncoder.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\repository\RoleRepository.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\controller\MainController.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\model\User.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\controller\UserController.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\model\Role.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\service\MatchService.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\repository\UserRepository.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\configuration\InitialDataLoader.java
+C:\Users\Luca\git\Universita\SnakeRebornServer\src\main\java\it\uniroma3\spring\snake\service\UserService.java
