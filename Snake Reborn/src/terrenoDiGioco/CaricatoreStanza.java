@@ -11,6 +11,7 @@ public class CaricatoreStanza {
 	public static void CaricaFile(String nomeFile, Stanza stanza){
 		stanza.setNome(nomeFile);
 		String testoMappa = LP.readFile(nomeFile);
+		if(testoMappa==null) throw new IllegalArgumentException();
 		ArrayList<Character> listaCaratteri = new ArrayList<>();
 		listaCaratteri.addAll(Utility.stringaToArray(testoMappa));
 

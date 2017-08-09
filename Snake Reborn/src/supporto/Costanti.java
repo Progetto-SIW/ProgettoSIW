@@ -5,7 +5,7 @@ public interface Costanti {
 	static final public int TEMPO_BASE = 83; // 12 fps	
 
 	public static final int DIMENSIONE_STANZA_DEFAULT = 40;
-	public static final int NUMERO_STANZE_DEFAULT = 8;
+	//public static final int NUMERO_STANZE_DEFAULT = 8;
 	public static final double RAPPORTO_DIMENSIONE_SCHERMO = 0.9; // 90% del lato minimo
 	
 	public static final String EST = "est";

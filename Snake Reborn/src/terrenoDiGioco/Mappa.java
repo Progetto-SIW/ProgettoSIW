@@ -42,10 +42,17 @@ public class Mappa {
 			stanze = new HashMap<>();
 
 			// creazione stanze
-			for(codGenStanze=0;codGenStanze<NUMERO_STANZE_DEFAULT;codGenStanze++){
+			codGenStanze=0;
+			boolean ok=true;
+			while(ok){
 				Stanza nuovaStanza = new Stanza(this.codGenStanze);
-				nuovaStanza.CaricaFile("stanze\\stanza-"+codGenStanze+".txt");
-				stanze.put(codGenStanze, nuovaStanza);
+				try{
+					nuovaStanza.CaricaFile("stanze\\stanza-"+codGenStanze+".txt");
+					stanze.put(codGenStanze, nuovaStanza);
+					codGenStanze++;
+				} catch(IllegalArgumentException e) {
+					ok=false;
+				}
 			}
 
 			String strutturaMappa = LP.readFile("mappe\\"+stringaDiConferma+".txt");

@@ -130,6 +130,9 @@ public class Stanza {
 	}
 
 	public boolean isLibera() {
+		//controllo casella centrale (se è murata non posso spawnare)
+		Casella temp = this.getCaselle().get(new Posizione(DIMENSIONE_STANZA_DEFAULT/2,DIMENSIONE_STANZA_DEFAULT/2));
+		if(temp.getStato()==CARATTERE_CASELLA_MURO) return false;
 		for(Casella c:this.getCaselle().values()){
 			// non è libera se è diversa da
 			if(c.getStato()!=CARATTERE_CASELLA_VUOTA &&
