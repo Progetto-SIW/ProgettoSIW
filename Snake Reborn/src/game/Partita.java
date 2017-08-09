@@ -128,8 +128,10 @@ public class Partita {
 			if(stanzaAlternativa!=null){
 				stanzaP1 = stanzaAlternativa;
 			}
+			int exLunghezza = this.serpenti.get(NOME_PLAYER_1).getExLunghezza();
+			if (exLunghezza<1) exLunghezza=2;
 			this.serpenti.remove(NOME_PLAYER_1);
-			Serpente serpenteGiocatore1 = new SerpenteGiocatore(NOME_PLAYER_1, stanzaP1);
+			Serpente serpenteGiocatore1 = new SerpenteGiocatore(NOME_PLAYER_1, stanzaP1,(int)exLunghezza/2);
 			this.serpenti.put(NOME_PLAYER_1, serpenteGiocatore1);
 		}
 	}

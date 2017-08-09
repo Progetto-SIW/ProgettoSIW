@@ -85,4 +85,10 @@ public class SerpenteBotMedium extends Serpente {
 		super.Sposta(direzioneDritta);
 	}
 
+	@Override
+	public int getExLunghezza() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

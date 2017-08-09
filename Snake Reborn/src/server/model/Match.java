@@ -5,7 +5,7 @@ public class Match {
 
 	private Date date;
 	private int score;
-	private long playingTime;
+	private long time;
 	private int kills;
 	
 	public Match() {
@@ -18,11 +18,11 @@ public class Match {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public long getPlayingTime() {
-		return playingTime;
+	public long getTime() {
+		return time;
 	}
-	public void setPlayingTime(long playingTime) {
-		this.playingTime = playingTime;
+	public void setTime(long time) {
+		this.time = time;
 	}
 	public int getScore() {
 		return score;

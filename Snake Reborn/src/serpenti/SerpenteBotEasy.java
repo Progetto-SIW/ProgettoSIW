@@ -87,4 +87,10 @@ public class SerpenteBotEasy extends Serpente {
 		super.Sposta(direzioneDritta);
 	}
 
+	@Override
+	public int getExLunghezza() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

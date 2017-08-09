@@ -149,4 +149,10 @@ public class SerpenteBotHard extends Serpente {
 		return false;
 	}
 
+	@Override
+	public int getExLunghezza() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

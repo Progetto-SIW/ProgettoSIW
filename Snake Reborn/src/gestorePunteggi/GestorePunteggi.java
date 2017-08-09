@@ -57,7 +57,9 @@ public class GestorePunteggi {
 		int nuovoRecord = partita.getPunteggioPlayer1();
 		InviaPunteggio inviatore = new InviaPunteggio(partita);
 		inviatore.start();
-		partita.setVecchioRecord(nuovoRecord);
+		if(nuovoRecord>partita.getVecchioRecord()){
+			partita.setVecchioRecord(nuovoRecord);
+		}
 	}
 
 	public static int getRecord() {

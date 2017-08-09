@@ -25,6 +25,14 @@ public abstract class Serpente {
 	private long tempoSopravvivenza;
 
 	public Serpente(String nome, Stanza stanza) {
+		costruisciSerpente(nome, stanza, VITA_SERPENTE_DEFAULT);
+	}
+	
+	public Serpente(String nome, Stanza stanza,int lunghezza) {
+		costruisciSerpente(nome, stanza, lunghezza);
+	}
+	
+	private void costruisciSerpente(String nome, Stanza stanza,int lunghezza) {
 		this.nome=nome;
 		this.isVivo=true;
 		this.ciboPreso=0;
@@ -42,14 +50,14 @@ public abstract class Serpente {
 		this.setCasellaDiTesta(primaCasella);
 		primaCasella.setStato(CARATTERE_CASELLA_PLAYER1);
 		primaCasella.setSerpente(this);
-		int vitaCasella = VITA_SERPENTE_DEFAULT;
+		int vitaCasella = lunghezza;
 		primaCasella.setVita(vitaCasella);
 		this.getCaselle().add(primaCasella);
 
 		// creo le altre caselle del serpente
 
 		Casella casellaPrecedente = primaCasella;
-		for(int i=0; i<VITA_SERPENTE_DEFAULT-1; i++){
+		for(int i=0; i<lunghezza-1; i++){
 			Casella casella = stanza.getCasellaAdiacente(direzioneCreazioneCaselle, casellaPrecedente);
 			casella.setStato(CARATTERE_CASELLA_PLAYER1);
 			casella.setSerpente(this);
@@ -246,5 +254,7 @@ public abstract class Serpente {
 		if(this.getCasellaDiTesta().equals(casella)) return true;
 		return false;
 	}
+	
+	public abstract int getExLunghezza();
 
 }
