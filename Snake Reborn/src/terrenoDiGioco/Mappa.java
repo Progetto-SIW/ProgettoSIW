@@ -190,4 +190,9 @@ public class Mappa {
 		if(tempStanza.isLibera()) return tempStanza;
 		return null;
 	}
+
+	public Stanza getStanzaCasuale() {
+		int nr = (int)(Math.random()*codGenStanze);
+		return stanze.get(nr);
+	}
 }

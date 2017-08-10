@@ -2,7 +2,9 @@ package supporto;
 
 public interface Costanti {
 
-	static final public int TEMPO_BASE = 83; // 12 fps	
+	// 83  -> 12 fps
+	// 100 -> 10 fps
+	static final public int TEMPO_BASE = 83;
 
 	public static final int DIMENSIONE_STANZA_DEFAULT = 40;
 	//public static final int NUMERO_STANZE_DEFAULT = 8;

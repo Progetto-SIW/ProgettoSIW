@@ -124,10 +124,25 @@ public class Partita {
 		if(p1.isMorto()){
 			GestoreSuoni.playSpawnSound();
 			Stanza stanzaP1 = p1.getStanza();
+			
 			Stanza stanzaAlternativa = this.mappa.getStanzaCasualeLibera_controlloSuTutteLeStanze();
+			
 			if(stanzaAlternativa!=null){
 				stanzaP1 = stanzaAlternativa;
+			} else {
+				//stanza di riserva in caso siano tutte occupate
+				if(!stanzaP1.getPossonoNascereSerpenti()){
+					boolean stanzaDiRiservaTrovata = false;
+					while(!stanzaDiRiservaTrovata){
+						Stanza temp = this.mappa.getStanzaCasuale();
+						if(temp.getPossonoNascereSerpenti()){
+							stanzaDiRiservaTrovata = true;
+							stanzaP1=temp;
+						}
+					}
+				}
 			}
+			
 			int exLunghezza = this.serpenti.get(NOME_PLAYER_1).getExLunghezza();
 			if (exLunghezza<VITA_SERPENTE_DEFAULT*2) exLunghezza=VITA_SERPENTE_DEFAULT*2;
 			this.serpenti.remove(NOME_PLAYER_1);

@@ -12,6 +12,7 @@ public class Stanza {
 	private HashMap<Posizione,Casella> caselle;
 	private HashMap<String,Stanza> collegamenti;
 	private String nome;
+	private boolean possonoNascereSerpenti;
 
 	public Stanza(int codice){
 		this.numerettoPerHash = (byte) (Math.random()*128);
@@ -24,10 +25,18 @@ public class Stanza {
 		this.collegamenti.put(EST, this);
 		this.collegamenti.put(SUD, this);
 		this.collegamenti.put(OVEST, this);
+		this.possonoNascereSerpenti = true;
 	}
 
 	public void CaricaFile(String nomeFile){
 		CaricatoreStanza.CaricaFile(nomeFile, this);
+		if(this.getCasellaCentrale().isMuro()){
+			this.possonoNascereSerpenti=false;
+		}
+	}
+
+	private Casella getCasellaCentrale() {
+		return this.caselle.get(new Posizione(DIMENSIONE_STANZA_DEFAULT/2,DIMENSIONE_STANZA_DEFAULT/2));
 	}
 
 	public HashMap<Posizione, Casella> getCaselle() {
@@ -131,8 +140,7 @@ public class Stanza {
 
 	public boolean isLibera() {
 		//controllo casella centrale (se è murata non posso spawnare)
-		Casella temp = this.getCaselle().get(new Posizione(DIMENSIONE_STANZA_DEFAULT/2,DIMENSIONE_STANZA_DEFAULT/2));
-		if(temp.getStato()==CARATTERE_CASELLA_MURO) return false;
+		if(!this.getPossonoNascereSerpenti()) return false;
 		for(Casella c:this.getCaselle().values()){
 			// non è libera se è diversa da
 			if(c.getStato()!=CARATTERE_CASELLA_VUOTA &&
@@ -146,6 +154,14 @@ public class Stanza {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public boolean getPossonoNascereSerpenti() {
+		return possonoNascereSerpenti;
+	}
+
+	public void setPossonoNascereSerpenti(boolean possonoNascereSerpenti) {
+		this.possonoNascereSerpenti = possonoNascereSerpenti;
 	}
 
 }
