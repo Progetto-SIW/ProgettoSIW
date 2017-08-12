@@ -26,19 +26,19 @@ public class SerpenteBotHard extends Serpente {
 		Direzione direzioneAlternativaSX = new Direzione(super.getDirezione().getX(),super.getDirezione().getY());
 		direzioneAlternativaSX.ruotaSX();
 
-		// se davanti c'e' un ostacolo... (serve per evitare cappi)
+		// se davanti c'e' un ostacolo...
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMortale()){
-			//...tento di andare nella direzione opposta all'ultima presa
+			//...tento di andare nella direzione opposta all'ultima presa  (serve per evitare cappi)
 			if(this.ultimaSterzata=='d'){
 				if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isMortale()){
-					super.Sposta(direzioneAlternativaSX);
+					super.sposta(direzioneAlternativaSX);
 					this.ultimaSterzata='s';
 					return;
 				}
 			}
 			if(this.ultimaSterzata=='s'){
 				if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isMortale()){
-					super.Sposta(direzioneAlternativaDX);
+					super.sposta(direzioneAlternativaDX);
 					this.ultimaSterzata='d';
 					return;
 				}
@@ -47,27 +47,27 @@ public class SerpenteBotHard extends Serpente {
 		
 		// se davanti c'e' cibo vado dritto
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isCibo()){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
 		// se davanti di due caselle c'e' cibo vado dritto
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).getCasellaAdiacente(direzioneDritta).isCibo() && 
 				!this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMortale()){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
 		// se a dx c'e cibo giro a dx
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isCibo()){
-			super.Sposta(direzioneAlternativaDX);
+			super.sposta(direzioneAlternativaDX);
 			this.ultimaSterzata='d';
 			return;
 		}
 		
 		// se a sx c'e cibo giro a sx
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isCibo()){
-			super.Sposta(direzioneAlternativaSX);
+			super.sposta(direzioneAlternativaSX);
 			this.ultimaSterzata='s';
 			return;
 		}
@@ -78,61 +78,57 @@ public class SerpenteBotHard extends Serpente {
 		int numeroDiCaselleDaControllareLaterale = 40;
 		
 		if(controllaCibo(PrimaCasella.getCasellaAdiacente(direzioneDritta), direzioneDritta, numeroDiCaselleDaControllareDritto)){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
 		if(controllaCibo(PrimaCasella.getCasellaAdiacente(direzioneAlternativaDX), direzioneAlternativaDX,numeroDiCaselleDaControllareLaterale)){
-			super.Sposta(direzioneAlternativaDX);
+			super.sposta(direzioneAlternativaDX);
 			this.ultimaSterzata='d';
 			return;
 		}
 		
 		if(controllaCibo(PrimaCasella.getCasellaAdiacente(direzioneAlternativaSX), direzioneAlternativaSX,numeroDiCaselleDaControllareLaterale)){
-			super.Sposta(direzioneAlternativaSX);
+			super.sposta(direzioneAlternativaSX);
 			this.ultimaSterzata='s';
 			return;
 		}
 
 		// caso: vado dritto, ma ogni tanto giro lo stesso
 		if((Utility.veroAl(95) && !this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMortale())){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		// priorità dx
 		if(Utility.veroAl(50)){
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isMortale()){
-				super.Sposta(direzioneAlternativaDX);
+				super.sposta(direzioneAlternativaDX);
 				this.ultimaSterzata='d';
 				return;
 			}
 
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isMortale()){
-				super.Sposta(direzioneAlternativaSX);
+				super.sposta(direzioneAlternativaSX);
 				this.ultimaSterzata='s';
 				return;
 			}
 
 		} else { // priorita' a sx
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isMortale()){
-				super.Sposta(direzioneAlternativaSX);
+				super.sposta(direzioneAlternativaSX);
 				this.ultimaSterzata='s';
 				return;
 			}
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isMortale()){
-				super.Sposta(direzioneAlternativaDX);
+				super.sposta(direzioneAlternativaDX);
 				this.ultimaSterzata='d';
 				return;
 			}
 		}
 
 		// caso: vado dritto - ignora il casuale
-		if((!this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMortale())){
-			super.Sposta(direzioneDritta);
-			return;
-		}
 
-		super.Sposta(direzioneDritta);
+		super.sposta(direzioneDritta);
 	}
 
 	private boolean controllaCibo(Casella primaCasella, Direzione dir, int numeroCaselle) {

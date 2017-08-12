@@ -46,6 +46,9 @@ public abstract class Serpente {
 		Direzione direzioneCreazioneCaselle = direzioneSerpente.getInversa();
 		// creo la testa del serpente
 		this.setCaselle(new LinkedList<Casella>());
+		
+		// pre: la prima casella è sempre libera!
+		// faccio il controllo solo sulle altre caselle
 		Casella primaCasella = stanza.getCaselle().get(posizionePrimaCasella);
 		this.setCasellaDiTesta(primaCasella);
 		primaCasella.setStato(CARATTERE_CASELLA_PLAYER1);
@@ -59,6 +62,10 @@ public abstract class Serpente {
 		Casella casellaPrecedente = primaCasella;
 		for(int i=0; i<lunghezza-1; i++){
 			Casella casella = stanza.getCasellaAdiacente(direzioneCreazioneCaselle, casellaPrecedente);
+			
+			// controllo casella
+			if(casella.isMortale()) return; // serpente più corto, pazienza
+			
 			casella.setStato(CARATTERE_CASELLA_PLAYER1);
 			casella.setSerpente(this);
 			vitaCasella--;
@@ -96,7 +103,7 @@ public abstract class Serpente {
 		return this.getCasellaDiTesta().getStanza();
 	}
 
-	public void Sposta(Direzione d){
+	public void sposta(Direzione d){
 		this.setDirezione(d);
 		Casella nuovaCasella = this.getCasellaDiTesta().getStanza().getCasellaAdiacente(d, this.getCasellaDiTesta());
 

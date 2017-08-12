@@ -25,32 +25,32 @@ public class SerpenteBotEasy extends Serpente {
 
 		// se davanti c'e' cibo vado dritto
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isCibo()){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
 		// se davanti di due caselle c'e' cibo vado dritto
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).getCasellaAdiacente(direzioneDritta).isCibo() && 
 				!this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMuro()){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
 		// se a dx c'e cibo giro a dx
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isCibo()){
-			super.Sposta(direzioneAlternativaDX);
+			super.sposta(direzioneAlternativaDX);
 			return;
 		}
 		
 		// se a sx c'e cibo giro a sx
 		if(this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isCibo()){
-			super.Sposta(direzioneAlternativaSX);
+			super.sposta(direzioneAlternativaSX);
 			return;
 		}
 		
 		// caso: vado dritto, ma ogni tanto giro lo stesso
 		if((Utility.veroAl(95) && !this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMuro())){
-			super.Sposta(direzioneDritta);
+			super.sposta(direzioneDritta);
 			return;
 		}
 		
@@ -58,33 +58,28 @@ public class SerpenteBotEasy extends Serpente {
 		if(Utility.veroAl(50)){
 			
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isMortale()){
-				super.Sposta(direzioneAlternativaDX);
+				super.sposta(direzioneAlternativaDX);
 				return;
 			}
 			
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isMortale()){
-				super.Sposta(direzioneAlternativaSX);
+				super.sposta(direzioneAlternativaSX);
 				return;
 			}
 			
 		} else { // priorita' a sx
 	
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaSX).isMortale()){
-				super.Sposta(direzioneAlternativaSX);
+				super.sposta(direzioneAlternativaSX);
 				return;
 			}
 			if(!this.getCasellaDiTesta().getCasellaAdiacente(direzioneAlternativaDX).isMortale()){
-				super.Sposta(direzioneAlternativaDX);
+				super.sposta(direzioneAlternativaDX);
 				return;
 			}
 		}
 		// caso: vado dritto - ignora il casuale
-		if((!this.getCasellaDiTesta().getCasellaAdiacente(direzioneDritta).isMuro())){
-			super.Sposta(direzioneDritta);
-			return;
-		}
-		
-		super.Sposta(direzioneDritta);
+		super.sposta(direzioneDritta);
 	}
 
 	@Override

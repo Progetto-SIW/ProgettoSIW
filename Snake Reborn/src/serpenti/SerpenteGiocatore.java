@@ -28,7 +28,7 @@ public class SerpenteGiocatore extends Serpente {
 	@Override
 	public void FaiMossa() {
 		if(!super.isMorto()){
-			super.Sposta(this.getDirezione());
+			super.sposta(this.getDirezione());
 		}
 	}
 	
